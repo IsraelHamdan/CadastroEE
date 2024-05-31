@@ -99,8 +99,8 @@ public class ServletProdutoFC extends HttpServlet {
    }
 
     private String handleListProducts(HttpServletRequest req) {
-        List<Produtos> productsList = facade.findAll();
-        req.setAttribute("produtos", productsList);
+        List<Produtos> produtos = facade.findAll();
+        req.setAttribute("produtos", produtos);
         return "ProdutoLista.jsp";
     }
   
@@ -113,8 +113,8 @@ public class ServletProdutoFC extends HttpServlet {
     
     private String handleFormModifyItem(HttpServletRequest req) {
        int id = Integer.parseInt(req.getParameter("id"));
-       Produtos product = facade.find(id);
-       req.setAttribute("produto", product);
+       Produtos produto = facade.find(id);
+       req.setAttribute("produto", produto);
        return "ProdutoDados.jsp";
    }
 
