@@ -8,6 +8,9 @@
     <title>Cadastro de Produtos</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./Produtos.css">
 </head>
 <body class="container">
@@ -24,7 +27,7 @@
     </div>
 
     <% if (acao.equals("alterar") && produto != null) { %>
-        <div class="card">
+        <div class="card-product    ">
             <h2>Dados Atuais do Produto</h2>
             <p><strong>Nome:</strong> <%= produto.getNome() %></p>
             <p><strong>Quantidade:</strong> <%= produto.getQuantidade() %></p>

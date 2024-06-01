@@ -5,7 +5,7 @@ import cadastroee.model.Produtos;
 import cadastroee.controller.ProdutosFacadeLocal;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.text.DecimalFormat;
+
 import java.util.List;
 import jakarta.ejb.EJB;
 import jakarta.servlet.ServletException;
@@ -35,28 +35,18 @@ public class ServletProduto extends HttpServlet {
 
     private String buildHtmlResponse(List<Produtos> produtos) {
         StringBuilder htmlBuilder = new StringBuilder();
-        DecimalFormat df = new DecimalFormat("#,##0.00");
-
+        
+        
         htmlBuilder.append("<!DOCTYPE html>")
             .append("<html>")
             .append("<head>")
             .append("<title>Lista de Produtos</title>")
             .append("</head>")
             .append("<body>")
-            .append("<h1>Lista de Produtos</h1>")
-            .append("<table >")
-            .append("<tr><th>Nome do Produto</th><th>Preço</th></tr>");
-
-        for (Produtos produto : produtos) {
-            htmlBuilder.append("<tr><td>")
-                .append(produto.getNome())
-                .append("</td><td>R$ ")
-                .append(df.format(produto.getPreco()))
-                .append("</td></tr>");
-        }
-
-        htmlBuilder.append("</table>")
-            .append("</body>")
+            .append("<h1>Lista de Produtos</h1>");
+            
+            produtos.forEach(produto -> htmlBuilder.append("<li>"+ produto.getNome() + "</li>"));
+            htmlBuilder.append("</body>")
             .append("</html>");
 
         return htmlBuilder.toString();
